@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FBFBFB;
+            flex-direction: column;
+        }
+        .container {
+            background: #C5BAFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .btn{
+            width: 35%;
+            display: block;
+            margin: 0 auto;
+            font-size: 24px;
+            border-radius: 30px;
+            border: none;
+            color: black;
+            cursor: pointer;
+            padding: 5px;
+
+        }
+        .btn-cal{
+            background-color: #C4D9FF;
+            margin-top: 10px;
+        }
+        .btn-reset{
+        margin-top: 10px;  
+            background-color: #E8F9FF;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-group{
+            display: flex ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Area Of The Rectangle</h2>
+        <input type="number" id="length" placeholder="Enter Length">
+        <input type="number" id="width" placeholder="Enter Width">
+        <div class="result" id="result">Area: </div>
+
+    <div class="btn-group"> 
+        <button class ="btn btn-reset"onclick="resetFields()">Reset</button>
+        <button class =" btn   btn-cal" onclick="calculateArea()">Calculate</button>
+    </div>  
+    </div>
+
+    <script>
+        function calculateArea() {
+            const length = parseFloat(document.getElementById("length").value);
+            const width = parseFloat(document.getElementById("width").value);
+            let area = 0;
+
+            if (!isNaN(length)) {
+                area = length * width;
+            } else {
+                alert("Please enter valid numbers for length.");
+                return;
+            }
+
+            
+            if (!isNaN(width)) {
+                area = length * width;
+            } else {
+                alert("Please enter valid numbers for width .");
+                return;
+            }
+            
+            document.getElementById("result").innerText = `Area: ${area.toFixed(2)}`;
+        }
+
+        function resetFields() {
+            document.getElementById("length").value = "";
+            document.getElementById("width").value = "";
+            document.getElementById("result").innerText = "Area: ";
+        }
+    </script>
+</body>
+</html>
